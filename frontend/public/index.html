@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Utilities Analysis</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- D3.js for map visualization -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Electrical Utilities Analysis</h1>
+            <nav>
+                <ul>
+                    <li><a href="#coverage">Coverage Map</a></li>
+                    <li><a href="#utilities">Utilities</a></li>
+                    <li><a href="#rates">Rates</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="coverage">
+                <h2>USA Coverage Map</h2>
+                <div id="map-container"></div>
+            </section>
+
+            <section id="utilities">
+                <h2>Utility Companies</h2>
+                <div class="data-table">
+                    <table id="utilities-table">
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>States</th>
+                                <th>Type</th>
+                                <th>Coverage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="rates">
+                <h2>Rate Analysis</h2>
+                <div class="rate-filters">
+                    <div class="select-controls">
+                        <button id="select-all">Select All</button>
+                        <button id="unselect-all">Unselect All</button>
+                    </div>
+                    <select id="state-multiselect" multiple>
+                        <!-- Populated by JavaScript -->
+                    </select>
+                </div>
+                <div id="rate-chart"></div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="/js/utilities.js"></script>
+    <script type="module" src="/js/utilities-table.js"></script>
+    <script type="module" src="/js/rates.js"></script>
+    <script type="module" src="/js/map.js"></script>
+</body>
+</html> 

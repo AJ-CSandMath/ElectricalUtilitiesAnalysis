@@ -1,0 +1,40 @@
+{
+  "tasks": {
+    "start": "deno run --allow-net=:3000,:8080 --allow-read=./data,./public --allow-env=PORT,ENV,JWT_SECRET --allow-write=./data --import-map=import_map.json src/server.ts",
+    "dev": "deno run --import-map=import_map.json --watch --allow-net --allow-read --allow-env --allow-write src/server.ts",
+    "test": "deno test --import-map=import_map.json --allow-net --allow-read",
+    "clean": "deno run --import-map=import_map.json --allow-read --allow-write scripts/clean.ts",
+    "cache": "deno cache src/deps.ts",
+    "start:frontend": "deno run --import-map=import_map.json --allow-net --allow-read --allow-env frontend/server.ts",
+    "db:seed": "deno run --import-map=import_map.json --allow-read --allow-write --allow-env backend/scripts/seedDatabase.ts",
+    "db:load": "deno run --import-map=import_map.json --allow-read --allow-write --allow-env backend/scripts/loadData.ts",
+    "db:init": "deno task db:seed && deno task db:load",
+    "download-data": "deno run --import-map=import_map.json --allow-net --allow-read --allow-write --allow-env backend/scripts/downloadData.ts"
+  },
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  },
+  "lint": {
+    "include": ["src/"],
+    "exclude": ["node_modules/"],
+    "rules": {
+      "tags": ["recommended"]
+    }
+  },
+  "fmt": {
+    "indentWidth": 2,
+    "lineWidth": 80,
+    "semiColons": true,
+    "singleQuote": false,
+    "proseWrap": "preserve",
+    "include": ["src/"]
+  },
+  "imports": {
+    "sqlite": "https://deno.land/x/sqlite3@0.11.1/mod.ts",
+    "sqlite3": "https://deno.land/x/sqlite3@0.11.1/mod.ts"
+  }
+} 
